@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatRadioModule } from '@angular/material/radio';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { AccordionModule } from 'primeng/accordion';
+import {InputTextModule} from 'primeng/inputtext';
+
+
+
 
 
 
@@ -23,11 +23,8 @@ import { AlunosComponent } from './alunos/alunos.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatRadioModule,
-    MatDatepickerModule
+    AccordionModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]
