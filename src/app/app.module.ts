@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AccordionModule } from 'primeng/accordion';
-import {InputTextModule} from 'primeng/inputtext';
+import { InputTextModule } from 'primeng/inputtext';
+import { TableModule } from 'primeng/table';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -24,7 +28,10 @@ import { AlunosComponent } from './alunos/alunos.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     AccordionModule,
-    InputTextModule
+    InputTextModule,
+    TableModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
