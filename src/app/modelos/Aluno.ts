@@ -1,9 +1,7 @@
-export class Aluno {
-    private nome: string = '';
-    private idade: number = 0;
+import { Sexo } from "../enums/Sexo";
 
-    constructor(nome: string, idade: number) {
-        this.nome = nome;
-        this.idade = idade;
-    }
+export class Aluno {
+    nome: string = '';
+    dataNascimento: Date = new Date();
+    sexo: Sexo = Sexo.Masculino;
 }

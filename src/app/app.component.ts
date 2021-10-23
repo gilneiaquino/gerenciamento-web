@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gerenciamento-web';
+  links = [
+    { title: 'One', fragment: 'one' },
+    { title: 'Two', fragment: 'two' }
+  ];
 }

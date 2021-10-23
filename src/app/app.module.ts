@@ -5,6 +5,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {RadioButtonModule} from 'primeng/radiobutton';
+
 
 
 
@@ -16,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlunosComponent } from './alunos/alunos.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { AlunosComponent } from './alunos/alunos.component';
     InputTextModule,
     TableModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    RadioButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
