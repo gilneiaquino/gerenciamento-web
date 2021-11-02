@@ -3,7 +3,7 @@ import { Sexo } from '../enums/Sexo';
 import { Aluno } from '../modelos/Aluno';
 import { Turma } from '../modelos/Turma';
 import { AlunosService } from './alunos.service';
-  
+
 
 @Component({
   selector: 'app-alunos',
@@ -18,8 +18,7 @@ export class AlunosComponent implements OnInit {
   public turma: Turma = new Turma();
 
 
-  constructor(private alunosService: AlunosService) { 
-    this.carregarListaTurmar();
+  constructor(private alunosService: AlunosService) {
   }
 
 
@@ -51,17 +50,33 @@ export class AlunosComponent implements OnInit {
     return listaAlunos;
   }
   ngOnInit(): void {
-     this.listaAluno = this.carregarListaAluno();
+    this.listaAluno = this.carregarListaAluno();
+    this.carregarListaTurmar();
+    this.carregarServico();
+ 
     // this.alunosService.buscarListaAlunos().then(data =>  this.listaAluno = data);
   }
 
-  cadastraAluno(form: Aluno){
-    console.log(form);    
+  cadastraAluno(form: Aluno) {
+    console.log(form);
   }
- 
+
 
   carregarListaTurmar(): void {
-    this.turmas = this.alunosService.getTurmas();      
+    this.turmas = this.alunosService.getTurmas();
+  }
+
+
+  carregarServico(): void {
+
+    this.alunosService.getTurmasServico().subscribe({
+      next: (resp) => {
+        this.turmas = resp;
+        console.log('dddddddddddddd',resp);
+        
+      }
+    });
+
   }
 
 }
