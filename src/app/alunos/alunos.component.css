@@ -1,45 +1,78 @@
-.example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
+form {
+  /* Apenas para centralizar o form na página */
+  width: 800px;
+  /* Para ver as bordas do formulário */
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
 
-  section {
-    display: table;
-  }
-  
-  .example-label {
-    display: table-cell;
-    font-size: 14px;
-    margin-left: 8px;
-    min-width: 120px;
-  }
-  
-  .example-button-row {
-    display: table-cell;
-    width: 490px;
-  }
-  
-  .example-button-row .mat-button-base {
-    margin: 8px 8px 8px 0;
-  }
-  
-  .example-flex-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  
-  .example-button-container {
-    display: flex;
-    justify-content: center;
-    width: 120px;
-  }
-  .mat-radio-button ~ .mat-radio-button {
-    margin-left: 16px;
-  }
-  
+form div + div {
+  margin-top: 1em;
+}
+
+label {
+  /*Para ter certeza que todas as labels tem o mesmo tamanho e estão propriamente alinhadas */
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+input[type=text], textarea select {
+  /* Para certificar-se que todos os campos de texto têm as mesmas configurações de fonte. Por padrão, textareas ter uma fonte monospace*/
+  font: 1em sans-serif;
+
+  /* Para dar o mesmo tamanho a todos os campo de texto */
+  width: 300px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  /* Para harmonizar o look & feel das bordas nos campos de texto*/
+  border: 1px solid #999;
+}
+
+input:focus, textarea:focus {
+  /* Dar um pouco de destaque nos elementos ativos */
+  border-color: #000;
+}
+
+textarea {
+  /* Para alinhar corretamente os campos de texto de várias linhas com sua label*/
+  vertical-align: top;
+
+  /* Para dar espaço suficiente para digitar algum texto */
+  height: 5em;
+
+  /* Para permitir aos usuários redimensionarem qualquer textarea verticalmente. Ele não funciona em todos os browsers */
+  resize: vertical;
+}
+
+.button {
+  /* Para posicionar os botões para a mesma posição dos campos de texto */
+  padding-left: 90px; /* mesmo tamanho que os elementos do tipo label */
+}
+button {
+  /* Esta margem extra representa aproximadamente o mesmo espaço que o espaço entre as labels e os seus campos de texto*/
+  margin-left: .10em;
+}
+
+fieldset {
+  display: block;
+  margin: 20px 1%;
+  margin-bottom: 20px;
+  padding: 0 auto;
+  padding: 15px 0;
+  border: 0;
+  border-top: 1px solid #DDD;
+  width: 98%;
+}
+
+legend { 
+  padding-left: 150px;
+}
+
+.alinhamento-botao {
+   margin-left: 150px;
+   margin-top: 2%;
+}

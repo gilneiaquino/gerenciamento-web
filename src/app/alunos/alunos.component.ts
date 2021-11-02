@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Sexo } from '../enums/Sexo';
 import { Aluno } from '../modelos/Aluno';
-import { AlunosService } from './alunosService';
- 
+import { Turma } from '../modelos/Turma';
+import { AlunosService } from './alunos.service';
+  
 
 @Component({
   selector: 'app-alunos',
@@ -13,9 +14,13 @@ export class AlunosComponent implements OnInit {
 
   public listaAluno: Aluno[] = [];
   public aluno: Aluno = new Aluno();
+  public turmas: Turma[] = [];
+  public turma: Turma = new Turma();
 
 
-  constructor() { }
+  constructor(private alunosService: AlunosService) { 
+    this.carregarListaTurmar();
+  }
 
 
   carregarListaAluno(): Aluno[] {
@@ -48,6 +53,15 @@ export class AlunosComponent implements OnInit {
   ngOnInit(): void {
      this.listaAluno = this.carregarListaAluno();
     // this.alunosService.buscarListaAlunos().then(data =>  this.listaAluno = data);
+  }
+
+  cadastraAluno(form: Aluno){
+    console.log(form);    
+  }
+ 
+
+  carregarListaTurmar(): void {
+    this.turmas = this.alunosService.getTurmas();      
   }
 
 }

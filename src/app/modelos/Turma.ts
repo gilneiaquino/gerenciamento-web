@@ -1,10 +1,7 @@
-export class Turma {
-    private id: number;
-    private turno: Turno;
-    private nome: string = ''
+import { Turno } from "../enums/Turno";
 
-    constructor(nome: string, turno: Turno) {
-        this.nome = nome;
-        this.turno = turno;
-    }
+export class Turma {
+    public id: number = 0;
+    public turno: Turno = Turno.MATUTINO;
+    public nome: string = ''; 
 }

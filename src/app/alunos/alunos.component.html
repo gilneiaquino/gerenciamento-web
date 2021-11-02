@@ -1,50 +1,59 @@
-
-    <div class="p-field p-grid">
-        <label for="firstname3" class="p-col-fixed" style="width:100px">Nome:</label>
-        <div class="p-col">
-            <input id="firstname3" type="text" pInputText [(ngModel)]="aluno.nome">
-        </div>
+<fieldset>
+    <legend>Fruit juice size</legend>
+    <div>
+        <label>Nome:</label>
+        <input type="text" [(ngModel)]="aluno.nome" />
     </div>
-    <div class="p-formgroup-inline">
-        <div class="p-field-checkbox">
-            <p-radioButton value="1" [(ngModel)]="aluno.sexo"></p-radioButton>
-            <label>Masculino</label>
-        </div>
-        <div class="p-field-checkbox">
-            <p-radioButton value="2" [(ngModel)]="aluno.sexo"></p-radioButton>
-            <label>Feminino</label>
-        </div>
+    <div>
+        <label>Sexo:</label>
+        <input type="radio" [(ngModel)]="aluno.sexo" value="1"> Masculino
+        <input type="radio" [(ngModel)]="aluno.sexo" value="2"> Feminino
     </div>
-    <div class="p-field p-grid">
-        <label for="lastname3" class="p-col-fixed" style="width:200px">Data de nascimento:</label>
-        <div class="p-col">
-            <input id="lastname3" type="text" pInputText [(ngModel)]="aluno.dataNascimento">
-        </div>
+    <div>
+        <label>Data nascimento:</label>
+        <input type="date" pInputText [(ngModel)]="aluno.dataNascimento">
+    </div>
+    <div>
+        <label>Turma:</label>
+        <select>
+            <option *ngFor="let turma of turmas" value={{turma.id}}>
+                {{turma.nome}}
+            </option>
+        </select>
     </div>
 
-    <br>
-    <br>
-    <br>
-
-    <div class="p-col-24">
-
-        <div class="p-field p-col-12 p-md-3">
-
-            <p-table [value]="listaAluno">
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th>Nome</th>
-                        <th>Data nascimento</th>
-                        <th>Sexo</th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-aluno>
-                    <tr>
-                        <td>{{aluno.nome}}</td>
-                        <td>{{aluno.dataNascimento | date : 'dd/MM/yyyy'}}</td>
-                        <td>{{aluno.sexo}}</td>
-                    </tr>
-                </ng-template>
-            </p-table>
-        </div>
+    <div class="alinhamento-botao">
+        <input type="button" (click)="cadastraAluno(aluno)" value="Cadastrar">
     </div>
+
+
+
+</fieldset>
+
+
+<br>
+<br>
+<br>
+
+<div class="p-col-24">
+
+    <div class="p-field p-col-12 p-md-3">
+
+        <p-table [value]="listaAluno">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nome</th>
+                    <th>Data nascimento</th>
+                    <th>Sexo</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-aluno>
+                <tr>
+                    <td>{{aluno.nome}}</td>
+                    <td>{{aluno.dataNascimento | date : 'dd/MM/yyyy'}}</td>
+                    <td>{{aluno.sexo}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
