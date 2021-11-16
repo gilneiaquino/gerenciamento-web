@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Turma } from '../modelos/Turma';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +13,8 @@ export class AlunosService {
   constructor(private http: HttpClient) {
 
   }
-
   private listaTurmaUrl: string = '/api/turma/listar';
+
 
   getTurmas(): Turma[] {
     let listaTurmas: Turma[] = [];
@@ -32,9 +34,9 @@ export class AlunosService {
     return listaTurmas;
   }
 
-   getTurmasServico(): Observable<Turma[]> {
-   
-    return this.http.get<Turma[]>(this.listaTurmaUrl)
+  getTurmasServico(): Observable<Turma[]> {
+    let params = {};
+    return this.http.post<Turma[]>(this.listaTurmaUrl, params);
   }
 
 }
