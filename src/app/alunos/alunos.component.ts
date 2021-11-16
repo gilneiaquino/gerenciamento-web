@@ -51,32 +51,21 @@ export class AlunosComponent implements OnInit {
   }
   ngOnInit(): void {
     this.listaAluno = this.carregarListaAluno();
-    this.carregarListaTurmar();
-    this.carregarServico();
- 
-    // this.alunosService.buscarListaAlunos().then(data =>  this.listaAluno = data);
-  }
+    this.carregarListaTurmas(); 
+   }
 
   cadastraAluno(form: Aluno) {
     console.log(form);
   }
 
 
-  carregarListaTurmar(): void {
-    this.turmas = this.alunosService.getTurmas();
-  }
-
-
-  carregarServico(): void {
-
-    this.alunosService.getTurmasServico().subscribe({
+  private carregarListaTurmas(): void {
+    this.alunosService.carregarTurmas().subscribe({
       next: (resp) => {
-        this.turmas = resp;
-        console.log('dddddddddddddd',resp);
-        
+        this.turmas = resp;         
       }
     });
-
-  }
+  } 
+  
 
 }

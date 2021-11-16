@@ -34,7 +34,7 @@ export class AlunosService {
     return listaTurmas;
   }
 
-  getTurmasServico(): Observable<Turma[]> {
+  carregarTurmas(): Observable<Turma[]> {
     let params = {};
     return this.http.post<Turma[]>(this.listaTurmaUrl, params);
   }
