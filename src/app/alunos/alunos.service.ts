@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Aluno } from '../modelos/Aluno';
 import { Turma } from '../modelos/Turma';
 
 
@@ -14,29 +15,17 @@ export class AlunosService {
 
   }
   private listaTurmaUrl: string = '/api/turma/listar';
+  private listaAlunosUrl: string = '/api/aluno/listar';
 
-
-  getTurmas(): Turma[] {
-    let listaTurmas: Turma[] = [];
-
-    let turma = new Turma();
-    turma.id = 1;
-    turma.nome = 'Turma A';
-
-    let turma2 = new Turma();
-    turma2.id = 1;
-    turma2.nome = 'Turma B';
-
-
-    listaTurmas.push(turma);
-    listaTurmas.push(turma2);
-
-    return listaTurmas;
-  }
 
   carregarTurmas(): Observable<Turma[]> {
     let params = {};
     return this.http.post<Turma[]>(this.listaTurmaUrl, params);
+  }
+
+  carregarAlunos(): Observable<Aluno[]> {
+    let params = {};
+    return this.http.post<Aluno[]>(this.listaAlunosUrl, params);
   }
 
 }

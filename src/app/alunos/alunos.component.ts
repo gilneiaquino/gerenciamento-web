@@ -50,9 +50,9 @@ export class AlunosComponent implements OnInit {
     return listaAlunos;
   }
   ngOnInit(): void {
-    this.listaAluno = this.carregarListaAluno();
-    this.carregarListaTurmas(); 
-   }
+    this.carregarListaAlunos();
+    this.carregarListaTurmas();
+  }
 
   cadastraAluno(form: Aluno) {
     console.log(form);
@@ -62,10 +62,18 @@ export class AlunosComponent implements OnInit {
   private carregarListaTurmas(): void {
     this.alunosService.carregarTurmas().subscribe({
       next: (resp) => {
-        this.turmas = resp;         
+        this.turmas = resp;
       }
     });
-  } 
-  
+  }
+
+  private carregarListaAlunos(): void {
+    this.alunosService.carregarAlunos().subscribe({
+      next: (resp) => {
+        this.listaAluno = resp;
+      }
+    });
+  }
+
 
 }
