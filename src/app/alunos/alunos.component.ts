@@ -21,43 +21,20 @@ export class AlunosComponent implements OnInit {
   constructor(private alunosService: AlunosService) {
   }
 
-
-  carregarListaAluno(): Aluno[] {
-    let listaAlunos: Aluno[] = [];
-    let aluno1: Aluno = new Aluno();
-    aluno1.nome = "Pedro";
-    aluno1.dataNascimento = new Date();
-    aluno1.sexo = Sexo.Masculino;
-
-
-    let aluno2: Aluno = new Aluno();
-
-    aluno2.nome = "Marcos";
-    aluno2.dataNascimento = new Date();
-    aluno2.sexo = Sexo.Masculino;
-
-
-    let aluno3: Aluno = new Aluno();
-
-    aluno3.nome = "Maria";
-    aluno3.dataNascimento = new Date();
-    aluno3.sexo = Sexo.Feminino;
-
-    listaAlunos.push(aluno1);
-    listaAlunos.push(aluno2);
-    listaAlunos.push(aluno3);
-
-    return listaAlunos;
-  }
   ngOnInit(): void {
     this.carregarListaAlunos();
     this.carregarListaTurmas();
   }
 
-  cadastraAluno(form: Aluno) {
-    console.log(form);
+  public cadastraAluno(aluno: Aluno) {
+    this.alunosService.cadastrarAluno(aluno).subscribe({
+      next: (resp) => {
+        if(resp){
+          this.carregarListaAlunos();
+        } 
+      }
+    });
   }
-
 
   private carregarListaTurmas(): void {
     this.alunosService.carregarTurmas().subscribe({

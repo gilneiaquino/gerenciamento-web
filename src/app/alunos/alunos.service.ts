@@ -16,7 +16,13 @@ export class AlunosService {
   }
   private listaTurmaUrl: string = '/api/turma/listar';
   private listaAlunosUrl: string = '/api/aluno/listar';
+  private cadastrarAlunoUrl: string = '/api/aluno/cadastrar';
 
+
+  cadastrarAluno(aluno: Aluno): Observable<any> {
+    let params = aluno;
+    return this.http.post<any>(this.cadastrarAlunoUrl, params);
+  }  
 
   carregarTurmas(): Observable<Turma[]> {
     let params = {};
